@@ -19,7 +19,7 @@ jobs:
       - name: install dotnet
         uses: actions/setup-dotnet@v1
       - name: restore
-        run: dotnet restore
+        run: dotnet restore --configuration ${{ env.configuration }}
       - name: build
         run: dotnet build --no-restore --configuration ${{ env.configuration }}
       - name: test
