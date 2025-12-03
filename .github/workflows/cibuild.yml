@@ -11,7 +11,7 @@ on:
 jobs:
   build: 
     env:
-      configuration: dev
+      configuration: release
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -19,7 +19,7 @@ jobs:
       - name: install dotnet
         uses: actions/setup-dotnet@v1
       - name: restore
-        run: dotnet restore --configuration ${{ env.configuration }}
+        run: dotnet restore
       - name: build
         run: dotnet build --no-restore --configuration ${{ env.configuration }}
       - name: test
