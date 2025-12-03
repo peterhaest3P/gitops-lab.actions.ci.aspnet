@@ -24,5 +24,12 @@ jobs:
         run: dotnet build --no-restore --configuration ${{ env.configuration }}
       - name: test
         run: dotnet test --no-build --verbosity normal --configuration ${{ env.configuration }}
+      - name: publish
+        run: dotnet publish --configuration ${{ env.configuration }} --output ${{runner.temp}}/artifact
+      - name: publish-artifact
+        uses: actions/upload-artifact@v4
+        with: 
+          name: publish
+          path: ${{runner.temp}}/artifact
       
       
