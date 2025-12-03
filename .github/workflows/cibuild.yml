@@ -23,6 +23,6 @@ jobs:
       - name: build
         run: dotnet build --no-restore --configuration ${{ env.configuration }}
       - name: test
-        run: dotnet test --no-build --verbosity normal--configuration ${{ env.configuration }}
+        run: dotnet test --no-build --verbosity normal --configuration ${{ env.configuration }}
       
       
